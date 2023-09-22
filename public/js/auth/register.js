@@ -1,7 +1,22 @@
 const passwordInput = document.getElementById('reg-password-input');
 const showPasswordButton = document.getElementById('reg-show-password-button');
 const showPasswordButtonShow = document.getElementById('reg-show-password-button-show');
+const emailInput = document.getElementById('reg-email-input');
+const invalidEmail = document.getElementById('error-email')
 
+emailInput.addEventListener('keydown', function(event) {
+    const key = event.key
+    if (key === ' '){
+        event.preventDefault()
+    }
+})
+
+passwordInput.addEventListener('keydown', function(event) {
+    const key = event.key
+    if (key === ' '){
+        event.preventDefault()
+    }
+})
 
 function togglePasswordVisibility() {
   if (passwordInput.type === 'password') {
@@ -73,9 +88,6 @@ function formatPhoneNumber(value) {
     }
     return formattedValue;
   }
-
-const emailInput = document.getElementById('reg-email-input');
-const invalidEmail = document.getElementById('error-email')
 
 emailInput.addEventListener('input', function () {
   let email = emailInput.value;

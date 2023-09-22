@@ -12,14 +12,15 @@
 <body>
     <div class="max-w-[1280px] mx-auto">
         <header>
-            @include('landing.header')
+            @include('header')
         </header>
         <main>
             @yield('content')
         </main>
         <footer>
-            @include('landing.footer')
+            @include('footer')
         </footer>
     </div>
 </body>
+<script src="{{ url('js/header/header.js') }}"></script>
 </html>

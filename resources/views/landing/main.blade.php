@@ -1,4 +1,4 @@
-<div class="flex mt-[102px] h-[600px]">
+<div class="flex mt-[122px] h-[600px]">
     <div>
         <p class="text-[54px] font-bold tracking-[0.5px]">Best Place to Buy<br>
             <span class="text-[#3C9379]">Everything.</span></p>

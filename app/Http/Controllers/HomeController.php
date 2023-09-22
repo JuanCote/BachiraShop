@@ -15,13 +15,9 @@ class HomeController extends Controller
 {
     public function index()
     {
-        if (!Auth::check()) {
-            return redirect('auth.login');
-        }
-
         $categories = Category::all();
 
-        Log::info(@$categories);
+
 
         return view('landing.landing')->with('categories', $categories);
     }

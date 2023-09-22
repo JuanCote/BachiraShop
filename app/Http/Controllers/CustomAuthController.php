@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,7 +18,11 @@ class CustomAuthController extends Controller
         if (Auth::check()) {
             return redirect('index');
         }
-        return view('auth.login');
+
+        $categories = Category::all();
+
+        return view('auth.login')->with('categories', $categories);
+        ;
     }
 
     public function customLogin(Request $request)
@@ -32,7 +37,7 @@ class CustomAuthController extends Controller
 
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('index')
+            return redirect('')
                 ->withSuccess('Signed in');
         }
 
@@ -44,7 +49,11 @@ class CustomAuthController extends Controller
         if (Auth::check()) {
             return redirect('index');
         }
-        return view('auth.registration');
+
+        $categories = Category::all();
+
+        return view('auth.registration')->with('categories', $categories);
+
     }
 
     public function customRegistration(Request $request)
@@ -60,7 +69,7 @@ class CustomAuthController extends Controller
         $data = $request->all();
         $check = $this->create($data);
 
-        return redirect("index")->withSuccess('You are not allowed to access');
+        return redirect("")->withSuccess('You are not allowed to access');
     }
 
     public function create(array $data)
@@ -87,6 +96,6 @@ class CustomAuthController extends Controller
         Session::flush();
         Auth::logout();
 
-        return Redirect('login');
+        return redirect('login');
     }
 }

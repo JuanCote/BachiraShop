@@ -5,7 +5,19 @@ const showPasswordButtonShow = document.getElementById('log-show-password-button
 const invalidPassword = document.getElementById('error-password')
 const invalidEmail = document.getElementById('error-email')
 
+emailInput.addEventListener('keydown', function(event) {
+    const key = event.key
+    if (key === ' '){
+        event.preventDefault()
+    }
+})
 
+passwordInput.addEventListener('keydown', function(event) {
+    const key = event.key
+    if (key === ' '){
+        event.preventDefault()
+    }
+})
 
 emailInput.addEventListener('input', function () {
   let email = emailInput.value;
