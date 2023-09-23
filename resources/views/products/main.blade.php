@@ -22,11 +22,11 @@
                 @endif
             @endforeach
         </div>
-    </div>
-    <div>
         <div class="font-medium text-lg">
             {{ $products_count }} results
         </div>
+    </div>
+    <div>
         <div class="w-[162px]">
             <div id="sort_button" class="flex items-center px-2 text-xs hover:cursor-pointer h-[20px] text-[#0F1111] shadow-md bg-[#f0f2f2] rounded-xl">
                 Sort by: Price: Low to High

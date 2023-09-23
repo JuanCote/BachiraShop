@@ -5,59 +5,59 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Product;
+use App\Services\Categories\CategoryService;
+use App\Services\Products\ProductService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 
 class ProductsController extends Controller
 {
-    public function category($categoryTitle)
+    private $categoryService;
+    private $productService;
+
+    public function __construct(
+        CategoryService $categoryService,
+        ProductService $productService
+    ) {
+        $this->categoryService = $categoryService;
+        $this->productService = $productService;
+    }
+    public function products(Request $request, $categoryTitle)
     {
-        $categories = Category::all();
 
-        $selectedCategory = null;
+        $categories = $this->categoryService->getAllCategories();
 
-        foreach ($categories as $category) {
-            if ($category['name'] === $categoryTitle) {
-                $selectedCategory = $category;
-                break;
-            }
-        }
+        $selectedCategory = $this->categoryService->getCategoryByName($categoryTitle, $categories);
 
         if ($selectedCategory == null) {
             return view('noCat');
         }
 
-        $subcategories = [];
-        $subcategoriesIds = [];
-        $parentCategory = $selectedCategory;
+        [
+            'subcategories' => $subcategories,
+            'subcategoriesIds' => $subcategoriesIds,
+            'parentCategory' => $parentCategory
+        ] = $this->categoryService->getSubcategoriesAndParentCategory($selectedCategory, $categories);
 
-        foreach ($categories as $category) {
-            if ($category['parent_id'] == $selectedCategory['id']) {
+        $request->validate([
+            'order' => 'nullable|in:asc,desc',
+            'sort' => 'nullable|in:price',
+        ]);
 
-                $subcategories[] = $category->toArray();
-                $subcategoriesIds[] = $category['id'];
-            } elseif ($category['id'] == $selectedCategory['parent_id']) {
-                $parentCategory = $category;
-            }
-        }
-
-        if ($parentCategory != $selectedCategory) {
-            foreach ($categories as $category) {
-                if ($category['parent_id'] == $parentCategory['id']) {
-                    $subcategories[] = $category->toArray();
-                }
-            }
-        }
+        $sortParam = $request->query('sort', 'price');
+        $orderParam = $request->query('order', 'desc');
 
         if ($parentCategory != $selectedCategory) {
-            $products = Product::where('category_id', $selectedCategory['id'])->get();
+            $products = $this->productService->getProductsById($selectedCategory->id, $sortParam, $orderParam);
 
         } else {
-            $products = Product::whereIn('category_id', $subcategoriesIds)->get();
+            $products = $this->productService->getProductsByCatsIds($subcategoriesIds, $sortParam, $orderParam);
         }
 
         $productsCount = count($products);
+
+
 
         return view('products.main')->with([
             'categories' => $categories,
