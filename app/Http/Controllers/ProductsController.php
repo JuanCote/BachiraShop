@@ -55,17 +55,14 @@ class ProductsController extends Controller
             $products = $this->productService->getProductsByCatsIds($subcategoriesIds, $sortParam, $orderParam);
         }
 
-        $productsCount = count($products);
-
-
-
         return view('products.main')->with([
             'categories' => $categories,
             'parent_category' => $parentCategory,
             'selected_category' => $selectedCategory,
             'subcategories' => $subcategories,
             'products' => $products,
-            'products_count' => $productsCount
+            'products_count' => count($products),
+            'order' => $orderParam
         ]);
     }
 }

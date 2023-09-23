@@ -27,7 +27,7 @@
                 <a href="/category/{{ $category->name }}?order=desc&sort=price"><div class="font-bold transition ease-in hover:scale-[1.05]">{{ $category->name }}</div></a>
                 @foreach ($category->subcategories as $sub)
                     <div class="text-lg transition ease-in hover:scale-[1.05]">
-                        <a href="/category/{{ $sub->name }}"><span class="">{{ $sub->name }}</span></a>
+                        <a href="/category/{{ $sub->name }}?order=desc&sort=price"><span class="">{{ $sub->name }}</span></a>
                     </div>
                 @endforeach
             </div>
