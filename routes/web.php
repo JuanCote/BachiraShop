@@ -27,3 +27,5 @@ Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name(
 Route::get('signout', [CustomAuthController::class, 'signout'])->name('signout');
 
 Route::get('category/{categoryTitle}', [ProductsController::class, 'products']);
+
+Route::get('/product/{productId}', [ProductsController::class, 'productPage']);

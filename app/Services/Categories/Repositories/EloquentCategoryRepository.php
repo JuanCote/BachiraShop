@@ -12,13 +12,4 @@ class EloquentCategoryRepository
     {
         return Category::all();
     }
-    public function getCategoryByName(string $categoryName, Collection $categories): ?Category
-    {
-        foreach ($categories as $category) {
-            if ($category->name === $categoryName) {
-                return $category;
-            }
-        }
-        return null;
-    }
 }

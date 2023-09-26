@@ -52,7 +52,7 @@
 <div class="mt-[2rem] grid grid-cols-4 gap-4">
     @foreach ($products as $product)
     <div class="">
-        <a href=""><div class="overflow-hidden">
+        <a href="/product/{{ $product->id }}"><div class="overflow-hidden">
             <img src="{{asset($product->image_url)}}" class="h-[23rem] w-full object-contain hover:scale-110 transition duration-300 ease-out">
         </div></a>
         <p class="mt-[15px] text-xl font-medium">{{ $product->name }}</p>
@@ -60,5 +60,5 @@
     </div>
     @endforeach
 </div>
-
+<script type="module" src="{{ url('js/products/products.js') }}"></script>
 @endsection

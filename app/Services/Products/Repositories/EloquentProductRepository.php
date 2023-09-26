@@ -21,4 +21,8 @@ class EloquentProductRepository
             ->orderBy($sortParam, $orderParam)
             ->get();
     }
+    public function getProductById(int $id): Product
+    {
+        return Product::find($id);
+    }
 }

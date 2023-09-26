@@ -3,6 +3,7 @@
 namespace App\Services\Products;
 
 use App\Models\Category;
+use App\Models\Product;
 use App\Services\Products\Repositories\EloquentProductRepository;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Log;
@@ -23,5 +24,9 @@ class ProductService
     public function getProductsById(int $id, string $sortParam, string $orderParam): Collection
     {
         return $this->productRepository->getProductsById($id, $sortParam, $orderParam);
+    }
+    public function getProductById(int $id): Product
+    {
+        return $this->productRepository->getProductById($id);
     }
 }

@@ -28,7 +28,7 @@
             <li class="font-bold mb-[10px]">Connect Us</li>
             <li class="mb-[6px] text-sm">bondarenkonikita234@gmail.com</li>
             <li class="mb-[6px] text-sm">+38 073 111 2924</li>
-            <li class="text-sm">Chernihiv, Ukrain</li>
+            <li class="text-sm">Chernihiv, Ukraine</li>
         </ul>
     </div>
 </div>

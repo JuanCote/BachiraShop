@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="w-[1280px] mx-auto">
-        <header>
+        <header class="relative">
             @include('header')
         </header>
         <main>
@@ -20,5 +20,5 @@
         </footer>
     </div>
 </body>
-<script src="{{ url('js/header/header.js') }}"></script>
+<script type="module" src="{{ url('js/header/header.js') }}"></script>
 </html>

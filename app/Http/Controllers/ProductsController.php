@@ -65,4 +65,15 @@ class ProductsController extends Controller
             'order' => $orderParam
         ]);
     }
+
+    public function productPage($productId)
+    {
+        $categories = $this->categoryService->getAllCategories();
+
+        $product = $this->productService->getProductById($productId);
+        return view('products.productPage')->with([
+            'product' => $product,
+            'categories' => $categories
+        ]);
+    }
 }
