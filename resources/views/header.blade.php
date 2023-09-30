@@ -20,12 +20,12 @@
                 <a href="/registration"><button class="hover:bg-[#389c7e] px-[18px] py-[8px] bg-[#3C9379] text-white font-medium rounded-[8px]">Register</button></a>
             </div>
         @endauth
-        <div id="cart" class="max-w-[35px]">
-            <a href=""><img src="{{asset('images/cart.svg')}}"></a>
+        <div id="cart" class="max-w-[35px] transition">
+            <a href="/cart"><img src="{{asset('images/cart.svg')}}"></a>
         </div>
     </div>
 </div>
-<div id="cart_menu" class="max-h-0 duration-700 transition-max-height absolute z-20 w-[25rem] rounded-xl overflow-hidden bg-[#f1f2f4] right-0">
+<div id="cart_menu" class="opacity-0 -z-30 transition-all translate-x-[10rem] absolute w-[25rem] rounded-xl overflow-hidden bg-[#f1f2f4] right-0">
     <div id="cart_block" class="flex p-4 flex-col gap-4">
 
     </div>
@@ -34,7 +34,7 @@
             <p class="font-bold text-lg">Total cost</p>
             <p id="total_price" class="font-bold"></p>
         </div>
-        <button class="hover:bg-[#e0872d] transition h-[2.5rem] w-[80%] mx-auto mt-[1rem] bg-[#df9a55] py-2 justify-center text-white text-xl font-bold rounded-lg flex items-center">Cart</button>
+        <a href='/cart'><button class="hover:bg-[#e0872d] transition h-[2.5rem] w-[80%] mx-auto mt-[1rem] bg-[#df9a55] py-2 justify-center text-white text-xl font-bold rounded-lg flex items-center">Cart</button></a>
     </div>
 </div>
 <div id="categories-block" class="z-10 absolute overflow-hidden rounded-[1rem] transition-max-height duration-300 max-h-0 ease-out bg-[#f1f2f4] flex gap-[10rem] text-xl px-10">

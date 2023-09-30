@@ -19,6 +19,6 @@ class HomeController extends Controller
 
 
 
-        return view('landing.landing')->with('categories', $categories);
+        return view('landing.main')->with('categories', $categories);
     }
 }

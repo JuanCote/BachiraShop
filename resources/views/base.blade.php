@@ -13,7 +13,7 @@
             @include('header')
         </header>
         <main>
-            @include('landing.main')
+            @yield('main')
         </main>
         <footer>
             @include('footer')

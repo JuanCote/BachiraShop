@@ -1,5 +1,5 @@
-@extends('products.base')
-@section('content')
+@extends('base')
+@section('main')
 
 <div class="flex mt-[9rem] justify-between">
     <div class="flex flex-col">

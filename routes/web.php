@@ -29,3 +29,4 @@ Route::get('signout', [CustomAuthController::class, 'signout'])->name('signout')
 Route::get('category/{categoryTitle}', [ProductsController::class, 'products']);
 
 Route::get('/product/{productId}', [ProductsController::class, 'productPage']);
+Route::get('/cart', [ProductsController::class, 'cart'])->name('cart');

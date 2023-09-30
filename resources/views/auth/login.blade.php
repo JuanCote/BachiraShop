@@ -1,5 +1,5 @@
-@extends('auth.base')
-@section('content')
+@extends('base')
+@section('main')
 <div class="my-[12rem] mx-auto w-[20rem] overflow-hidden bg-[#3c9379] rounded-[15px]">
     <div class="flex w-[50%]">
         <button class="py-3 w-full rounded-br-[15px] bg-[#fb4549] text-white">Login</button>

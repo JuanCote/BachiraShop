@@ -88,10 +88,10 @@ function addProductToCart(product) {
     cartItem.innerHTML = `
         <div class="flex">
             <div class="h-[160px] flex-[0_0_33.3333%]">
-                <img src="${imageUrl}" class="h-full w-full object-contain" alt="${product.name}">
+                <a href="/product/${product.id}"><img src="${imageUrl}" class="h-full w-full object-contain" alt="${product.name}"></a>
             </div>
             <div class="px-4 flex-auto flex flex-col py-2">
-                <div class="font-bold">${product.name}</div>
+                <a href="/product/${product.id}"><div class="font-bold">${product.name}</div></a>
                 <div id="count_${product.id}" class="font-medium">Count: ${product.count}</div>
                 <div class="self-end mt-auto font-medium">${product.price} USD</div>
             </div>
@@ -114,12 +114,18 @@ window.addEventListener('load', loadProductsToCart);
 
 cart_icon.addEventListener('mouseenter', () => {
     clearTimeout(hideTimeoutCart);
-    cart_menu.classList.add('max-h-full')
+    cart_icon.classList.add('rotate-45')
+    cart_menu.classList.add('z-20')
+    cart_menu.classList.add('opacity-100')
+    cart_menu.classList.remove('translate-x-[10rem]');
 })
 
 cart_icon.addEventListener('mouseleave', () => {
     hideTimeoutCart = setTimeout(() => {
-        cart_menu.classList.remove('max-h-full')
+        cart_icon.classList.remove('rotate-45')
+        cart_menu.classList.remove('z-20')
+        cart_menu.classList.add('translate-x-[10rem]');
+        cart_menu.classList.remove('opacity-100')
     }, 200)
 })
 
@@ -129,7 +135,10 @@ cart_menu.addEventListener('mouseenter', () => {
 
 cart_menu.addEventListener('mouseleave', () => {
     hideTimeoutCart = setTimeout(() => {
-        cart_menu.classList.remove('max-h-full')
-    }, 300)
+        cart_icon.classList.remove('rotate-45')
+        cart_menu.classList.remove('z-20')
+        cart_menu.classList.add('translate-x-[10rem]');
+        cart_menu.classList.remove('opacity-100')
+    }, 50)
 })
 export default cart

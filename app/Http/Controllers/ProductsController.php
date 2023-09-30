@@ -76,4 +76,12 @@ class ProductsController extends Controller
             'categories' => $categories
         ]);
     }
+
+    public function cart()
+    {
+        $categories = $this->categoryService->getAllCategories();
+        return view('products.cart')->with([
+            'categories' => $categories
+        ]);
+    }
 }

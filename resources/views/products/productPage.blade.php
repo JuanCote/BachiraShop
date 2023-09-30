@@ -1,9 +1,9 @@
-@extends('products.base')
-@section('content')
+@extends('base')
+@section('main')
 
 <div class="flex min-h-[30rem] mt-[50px]">
     <div class="flex-1">
-        <img src="{{ asset($product->image_url) }}">
+        <img class="h-full object-contain flex justify-center" src="{{ asset($product->image_url) }}">
     </div>
     <div class="mt-[3rem] flex-1 ml-[4rem]">
         <p class="font-medium text-xl">{{ $product->name }}</p>

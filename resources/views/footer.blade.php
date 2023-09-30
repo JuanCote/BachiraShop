@@ -1,4 +1,4 @@
-<div class="flex mt-[150px] items-center gap-[89px] justify-center">
+<div class="flex mt-[150px] items-center justify-between">
     <div class="w-[372px]">
         <h1 class="font-bold text-[32px]">Ba<span class="text-[#3C9379]">chira</span></h1>
         <p class="mt-10px">Bachira is an online store dealing with all product

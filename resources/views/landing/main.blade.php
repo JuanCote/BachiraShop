@@ -1,10 +1,12 @@
+@extends('base')
+@section('main')
 <div class="flex mt-[122px] h-[600px]">
     <div>
         <p class="text-[54px] font-bold tracking-[0.5px]">Best Place to Buy<br>
             <span class="text-[#3C9379]">Everything.</span></p>
         <p class="mt-[32px] text-sm">At Bachira, you can shop for all your favorite beauty brands, clothes,<br>
             household products and more at a single place.</p>
-        <button class="py-[12px] px-[22px] bg-[#3C9379] text-white rounded-[8px] mt-[32px] transition ease-in hover:-translate-y-1 hover:bg-[#389c7e]">Shopping Now</button>
+        <button class="py-[12px] px-[22px] bg-[#3C9379] text-white rounded-[8px] mt-[32px] transition hover:-translate-y-1 hover:bg-[#57a18b]">Shopping Now</button>
     </div>
     <div class="">
         <img class="absolute h-[35rem]" src="{{url('/images/landing-woman.png')}}" alt="langing woman">
@@ -45,7 +47,7 @@ E Commerce and Brands
             </div></a>
         </div>
         <div class="flex ml-[26px]">
-            <a href=""><div class="relative rounded-[30px] overflow-hidden">
+            <a href="/category/Shoes?order=desc"><div class="relative rounded-[30px] overflow-hidden">
                 <div class="absolute z-10  left-[70%] text-white top-[10%]">
                     <h2 class="text-xl font-bold">Shoes</h2>
                     <p class=>2,000 items</p>
@@ -94,10 +96,10 @@ All Brands
     </div>
     <div class="flex mt-[20px] gap-[30px]">
         <div class="">
-            <a href=""><div class="rounded-[30px] overflow-hidden">
+            <a href="/product/1"><div class="rounded-[30px] overflow-hidden">
                 <img src="{{url('/images/product1.png')}}" class=" hover:scale-110 transition duration-300 ease-out">
             </div></a>
-            <p class="mt-[15px] text-xl font-medium">Nike Air Force</p>
+            <a href="/product/1"><p class="mt-[15px] text-xl font-medium">Nike Air Force</p></a>
             <p class="mt-[2px]">2.999</p>
         </div>
         <div>
@@ -123,3 +125,4 @@ All Brands
         </div>
     </div>
 </div>
+@endsection
