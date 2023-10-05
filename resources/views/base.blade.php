@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="relative" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 <body>
-    <div class="w-[1280px] mx-auto">
+    <div id="main-container" class="w-[1280px] mx-auto">
         <header class="relative">
             @include('header')
         </header>

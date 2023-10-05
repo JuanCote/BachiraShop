@@ -2,7 +2,7 @@
 @section('main')
 
 <div class="flex mt-[50px]">
-    <div class="">
+    <div class="w-[70%]">
         <div class="flex items-center">
             <h1 class="font-bold text-4xl">Cart</h1>
             <div class="ml-[1rem] bg-[#f3f3f5] h-[45px] px-4 items-center flex">4 products</div>
@@ -11,35 +11,42 @@
             <img class="h-[1rem]" src="{{asset('images/tag.png')}}">
             <p class='ml-[0.5rem]'>Free delivery for orders over 500 USD at full cost</p>
         </div>
-        <div>
-            <div class="flex mt-[2rem]">
-                <div class="w-[20%]">
-                    <a href="/product/"><img class="" src="{{ asset('images/products/81HGN7I8q3L._AC_UY575_.jpg') }}"></a>
-                </div>
-                <div class="flex flex-col ml-6">
-                    <div>
-                        <a href="/product/"><h2 class="font-medium text-lg">Пижама</h2></a>
-                        <p class="mt-3">Cost: 1000 USD</p>
-                    </div>
-                    <div class="flex mt-auto justify-between">
-                        <button class="rounded-full w-[2rem] flex items-center justify-center pb-3 h-[2rem] text-5xl bg-[#f1f2f4]">-</button>
-                        <p></p>
-                        <button class="rounded-full w-[2rem] flex items-center justify-center pb-1 h-[2rem] text-3xl bg-[#f1f2f4]">+</button>
-                    </div>
-                </div>
-                <div class="ml-auto">
-                    <div class="flex gap-1 hover:bg-[#f1f2f4] hover:cursor-pointer p-3 rounded-xl transition">
-                        <div class="">
-                            <img class="h-[1.5rem]" src="{{ asset('images/trash.png') }}">
-                        </div>
-                        <p class="font-medium">Remove</p>
-                    </div>
-                </div>
+        <div id="cart_container">
+        </div>
+    </div>
+    <div class="flex-2 w-[30%] bg-[#f2f2f2] py-[5.1rem] px-[3rem]">
+        <div class="flex justify-between">
+            <p>Total Cost</p>
+            <p id="total-cost">500 USD</p>
+        </div>
+        <div class="flex justify-between mt-[1rem]">
+            <p>Delivery</p>
+            <p id="delivery">From 20 USD</p>
+        </div>
+        <hr class="mt-[1rem]">
+        <div class="flex justify-between mt-[1rem]">
+            <p>Total purchase amount</p>
+            <p id="total-purchase" class="font-medium">520 USD</p>
+        </div>
+        <hr class="mt-[1rem]">
+        <button class="mt-[1rem] bg-[#df9a55] hover:bg-[#e0872d] transition py-3 text-center w-full text-white text-lg font-bold">Proceed to checkout</button>
+        <div class="mt-[2rem]">
+            <div class="flex mt-[1rem] items-center gap-2">
+                <img class="h-[1.5rem]" src="{{ asset('images/safety.png') }}">
+                <p class="font-medium text-sm">Safe shopping at Bachira</p>
+            </div>
+            <div class="flex mt-[1rem] items-center gap-2">
+                <img class="h-[1.5rem]" src="{{ asset('images/box.png') }}">
+                <p class="font-medium text-sm">Free delivery for orders over UAH 500 at full cost</p>
+            </div>
+            <div class="flex mt-[1rem] items-center gap-2">
+                <img class="h-[1.5rem]" src="{{ asset('images/back_arrow.png') }}">
+                <p class="font-medium text-sm">30 days to return</p>
             </div>
         </div>
     </div>
 </div>
 
-<script type="module" src="{{ url('js/products/productPage.js') }}"></script>
+<script type="module" src="{{ url('js/products/cart.js') }}"></script>
 
 @endsection

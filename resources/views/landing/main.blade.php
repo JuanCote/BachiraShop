@@ -31,14 +31,14 @@ E Commerce and Brands
     <div class="flex mt-[30px]">
 
         <div class="">
-            <a href=""><div class="relative overflow-hidden rounded-[30px]">
+            <a href="/category/Clothing?order=desc&sort=price"><div class="relative overflow-hidden rounded-[30px]">
                 <div class="absolute left-[70%] z-10 text-white top-[10%]">
                     <h2 class="text-xl font-bold ">Fashion</h2>
                     <p class=>30,000 items</p>
                 </div>
                 <img class="-z-10 hover:scale-110 transition duration-300 ease-out" src="{{url('/images/landing-cloth1.png')}}">
             </div></a>
-            <a href=""><div class="relative mt-[26px] rounded-[30px] overflow-hidden">
+            <a href="/category/Skincare?order=desc&sort=price"><div class="relative mt-[26px] rounded-[30px] overflow-hidden">
                 <div class="absolute z-10  left-[70%] text-white top-[10%]">
                     <h2 class="text-xl font-bold">Skincare</h2>
                     <p class=>2,000 items</p>
@@ -54,7 +54,7 @@ E Commerce and Brands
                 </div>
                 <img class="-z-10 hover:scale-110  transition duration-300 ease-out" src="{{url('/images/landing-cloth3.png')}}">
             </div></a>
-            <a href=""><div class="relative ml-[26px] rounded-[30px] overflow-hidden">
+            <a href="/category/Electronic?order=desc&sort=price"><div class="relative ml-[26px] rounded-[30px] overflow-hidden">
                 <div class="absolute  z-10 left-[70%] text-white top-[10%]">
                     <h2 class="text-xl font-bold">Electronic</h2>
                     <p class=>2,000 items</p>
@@ -99,29 +99,29 @@ All Brands
             <a href="/product/1"><div class="rounded-[30px] overflow-hidden">
                 <img src="{{url('/images/product1.png')}}" class=" hover:scale-110 transition duration-300 ease-out">
             </div></a>
-            <a href="/product/1"><p class="mt-[15px] text-xl font-medium">Nike Air Force</p></a>
-            <p class="mt-[2px]">2.999</p>
+            <p class="mt-[15px] text-xl font-medium"><a href="/product/1">Nike Air Force</a></p>
+            <p class="mt-[2px]">2999.00 USD</p>
         </div>
-        <div>
-            <a href=""><div class="rounded-[30px] overflow-hidden">
+        <div class="flex flex-col">
+            <a href="/product/33"><div class="rounded-[30px] overflow-hidden">
                 <img src="{{url('/images/product2.png')}}" class=" hover:scale-110 transition duration-300 ease-out">
             </div></a>
-            <p class="mt-[15px] text-xl font-medium">White Sweter</p>
-            <p class="mt-[2px]">2.999</p>
+            <p class="mt-[15px] text-xl font-medium"><a href="/product/33">White Sweter</a></p>
+            <p class="mt-[2px]">44.25 USD</p>
         </div>
         <div>
-            <a href=""><div class="rounded-[30px] overflow-hidden">
+            <a href="/product/34"><div class="rounded-[30px] overflow-hidden">
                 <img src="{{url('/images/product3.png')}}" class=" hover:scale-110 transition duration-300 ease-out">
             </div></a>
-            <p class="mt-[15px] text-xl font-medium">Android Smartwatch</p>
-            <p class="mt-[2px]">2.999</p>
+            <p class="mt-[15px] text-xl font-medium"><a href="/product/34">Smartwatch</a></p>
+            <p class="mt-[2px]">350.00</p>
         </div>
         <div>
-            <a href=""><div class="rounded-[30px] overflow-hidden">
+            <a href="/product/36"><div class="rounded-[30px] overflow-hidden">
                 <img src="{{url('/images/product4.png')}}" class=" hover:scale-110 transition duration-300 ease-out">
             </div></a>
-            <p class="mt-[15px] text-xl font-medium">Apple Airpods</p>
-            <p class="mt-[2px]">2.999</p>
+            <p class="mt-[15px] text-xl font-medium"><a href="/product/36">Apple Airpods</a></p>
+            <p class="mt-[2px]">200.00</p>
         </div>
     </div>
 </div>

@@ -20,7 +20,8 @@
                 <a href="/registration"><button class="hover:bg-[#389c7e] px-[18px] py-[8px] bg-[#3C9379] text-white font-medium rounded-[8px]">Register</button></a>
             </div>
         @endauth
-        <div id="cart" class="max-w-[35px] transition">
+        <div id="cart" class="max-w-[35px] transition relative">
+            <p id="cart_count" class="absolute left-[45%] -top-5 text-xl font-medium -translate-x-1/2">5</p>
             <a href="/cart"><img src="{{asset('images/cart.svg')}}"></a>
         </div>
     </div>
