@@ -3,6 +3,7 @@
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,3 +31,5 @@ Route::get('category/{categoryTitle}', [ProductsController::class, 'products']);
 
 Route::get('/product/{productId}', [ProductsController::class, 'productPage']);
 Route::get('/cart', [ProductsController::class, 'cart'])->name('cart');
+
+Route::get('/profile/orders', [ProfileController::class, 'profileOrders'])->name('profile');

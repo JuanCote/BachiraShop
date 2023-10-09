@@ -135,7 +135,6 @@ function addProductToCart(product) {
             </div>
         </div>
     `;
-
     cart_block.appendChild(cartItem);
 }
 

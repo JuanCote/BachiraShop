@@ -11,8 +11,9 @@
     </ul>
     <div class="flex gap-10 items-center">
         @auth
-        <div class="flex items-center">
-            <a href="/signout"><button class="hover:bg-[#389c7e] px-[18px] py-[8px] bg-[#3C9379] text-white font-medium rounded-[8px]">Logout</button></a>
+        <div class="flex items-center flex-col">
+            <a href="/profile/orders"><img class="" src="{{ asset('images/user.png') }}"></a>
+            <a href="/profile/orders"><p class="font-medium">Account</p></a>
         </div>
         @else
             <div>
@@ -26,7 +27,7 @@
         </div>
     </div>
 </div>
-<div id="cart_menu" class="opacity-0 -z-30 transition-all translate-x-[10rem] absolute w-[25rem] rounded-xl overflow-hidden bg-[#f1f2f4] right-0">
+<div id="cart_menu" class="opacity-0 max-h-[800px] overflow-auto -z-30 transition-all translate-x-[10rem] absolute w-[25rem] rounded-xl bg-[#f1f2f4] right-0">
     <div id="cart_block" class="flex p-4 flex-col gap-4">
 
     </div>
