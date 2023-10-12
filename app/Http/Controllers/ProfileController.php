@@ -32,4 +32,16 @@ class ProfileController extends Controller
             'orders' => $orders,
         ]);
     }
+    public function profileAddress()
+    {
+        if (!Auth::check()) {
+            return redirect('login');
+        }
+        $categories = $this->categoryService->getAllCategories();
+        $orders = [];
+        return view('profile.profileAddress')->with([
+            'categories' => $categories,
+            'orders' => $orders,
+        ]);
+    }
 }

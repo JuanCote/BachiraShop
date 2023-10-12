@@ -6,7 +6,7 @@
             <span class="text-[#3C9379]">Everything.</span></p>
         <p class="mt-[32px] text-sm">At Bachira, you can shop for all your favorite beauty brands, clothes,<br>
             household products and more at a single place.</p>
-        <button class="py-[12px] px-[22px] bg-[#3C9379] text-white rounded-[8px] mt-[32px] transition hover:-translate-y-1 hover:bg-[#57a18b]">Shopping Now</button>
+        <a href="/category/Electronic?order=desc&sort=price"><button class="py-[12px] px-[22px] bg-[#3C9379] text-white rounded-[8px] mt-[32px] transition hover:-translate-y-1 hover:bg-[#57a18b]">Shopping Now</button></a>
     </div>
     <div class="">
         <img class="absolute h-[35rem]" src="{{url('/images/landing-woman.png')}}" alt="langing woman">

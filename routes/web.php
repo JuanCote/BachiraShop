@@ -33,3 +33,4 @@ Route::get('/product/{productId}', [ProductsController::class, 'productPage']);
 Route::get('/cart', [ProductsController::class, 'cart'])->name('cart');
 
 Route::get('/profile/orders', [ProfileController::class, 'profileOrders'])->name('profile');
+Route::get('/profile/address', [ProfileController::class, 'profileAddress'])->name('profile');
