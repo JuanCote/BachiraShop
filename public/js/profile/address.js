@@ -1,4 +1,8 @@
+const form = document.getElementById('form')
+
 const phoneInput = document.getElementById('phone-input');
+const phoneCheck = document.getElementById('phone-error-check')
+const phoneError = document.getElementById('phone-error')
 
 const firstname = document.getElementById('firstname')
 const firstnameCheck = document.getElementById('firstname-error-check')
@@ -39,16 +43,14 @@ phoneInput.addEventListener('input', function () {
       }
     });
 
-  phoneInput.addEventListener('input', function () {
+  phoneInput.addEventListener('blur', function () {
       let phone = phoneInput.value;
       if (phone.length == 19) {
-          phoneInput.classList.add('border-green-500');
-          phoneInput.classList.add('border-2');
-          phoneInput.classList.remove('border-red-500');
+        phoneCheck.classList.remove('hidden')
+        phoneError.classList.add('hidden')
       } else {
-          phoneInput.classList.remove('border-green-500');
-          phoneInput.classList.add('border-red-500');
-          phoneInput.classList.add('border-2');
+        phoneCheck.classList.add('hidden')
+        phoneError.classList.remove('hidden')
       }
     });
 
@@ -194,3 +196,71 @@ function checkPostalCode(postalCode) {
 
     return '';
 }
+
+form.addEventListener('submit', function(event) {
+    const firstnameValue = firstname.value
+    const surnameValue = surname.value
+    const streetValue = street.value
+    const houseValue = house.value
+    const postalValue = postal.value
+    const cityValue = city.value
+    const phoneValue = phoneInput.value
+
+    let flag = true
+
+    const checkFirstnameResult = checkFirstname(firstnameValue)
+    if (checkFirstnameResult){
+        firstnameError.innerText = checkFirstnameResult
+        firstnameError.classList.remove('hidden')
+        flag = false
+    }
+
+    const checkSurnameResult = checkSurname(surnameValue)
+    if (checkSurnameResult){
+        surnameError.innerText = checkSurnameResult
+        surnameError.classList.remove('hidden')
+        flag = false
+    }
+
+    if (!streetValue){
+        streetError.classList.remove('hidden')
+        flag = false
+    }
+
+    if (!houseValue){
+        houseError.classList.remove('hidden')
+        flag = false
+    }
+
+    const checkPostalCodeResult = checkPostalCode(postalValue)
+    if (checkPostalCodeResult){
+        postalError.innerText = checkPostalCodeResult
+        postalError.classList.remove('hidden')
+        flag = false
+    }
+
+    if (!cityValue){
+        cityError.classList.remove('hidden')
+        flag = false
+    }
+
+    if (phoneValue.length !== 19){
+        phoneError.classList.remove('hidden')
+        flag = false
+    }
+
+    if (!flag){
+        event.preventDefault()
+    }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const notification = document.getElementById('notification');
+    if (notification) {
+        notification.classList.add('opacity-100');
+        setTimeout(() => {
+            notification.classList.remove('opacity-100');
+        }, 2000)
+    }
+
+  });
