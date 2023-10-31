@@ -27,7 +27,7 @@ class ProductsController extends Controller
     {
 
         $categories = $this->categoryService->getAllCategories();
-
+        $user = $request->user();
         $selectedCategory = $this->categoryService->getCategoryByName($categoryTitle, $categories);
 
         if ($selectedCategory == null) {
@@ -62,26 +62,30 @@ class ProductsController extends Controller
             'subcategories' => $subcategories,
             'products' => $products,
             'products_count' => count($products),
-            'order' => $orderParam
+            'order' => $orderParam,
+            'user' => $user,
         ]);
     }
 
-    public function productPage($productId)
+    public function productPage($productId, Request $request)
     {
         $categories = $this->categoryService->getAllCategories();
-
+        $user = $request->user();
         $product = $this->productService->getProductById($productId);
         return view('products.productPage')->with([
             'product' => $product,
-            'categories' => $categories
+            'categories' => $categories,
+            'user' => $user,
         ]);
     }
 
-    public function cart()
+    public function cart(Request $request)
     {
         $categories = $this->categoryService->getAllCategories();
+        $user = $request->user();
         return view('products.cart')->with([
-            'categories' => $categories
+            'categories' => $categories,
+            'user' => $user,
         ]);
     }
 }

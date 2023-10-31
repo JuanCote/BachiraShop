@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductsController;
@@ -35,3 +36,6 @@ Route::get('/cart', [ProductsController::class, 'cart'])->name('cart');
 Route::get('/profile/orders', [ProfileController::class, 'profileOrders']);
 Route::get('/profile/address', [ProfileController::class, 'profileAddress'])->name('profile.address');
 Route::post('/profile/editAddress', [ProfileController::class, 'editAddress'])->name('profile.editAddress');
+
+Route::get('/checkout', [CheckoutController::class, 'checkout']);
+Route::post('/createOrder', [CheckoutController::class, 'createOrder'])->name('createOrder');

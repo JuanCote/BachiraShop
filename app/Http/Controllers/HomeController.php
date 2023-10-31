@@ -13,12 +13,13 @@ use Session;
 
 class HomeController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $categories = Category::all();
-
-
-
-        return view('landing.main')->with('categories', $categories);
+        $user = $request->user();
+        return view('landing.main')->with([
+            'categories' => $categories,
+            'user' => $user
+        ]);
     }
 }

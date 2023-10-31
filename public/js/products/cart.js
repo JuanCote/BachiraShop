@@ -4,6 +4,9 @@ const cartContainer = document.getElementById('cart_container')
 const totalPriceDiv = document.getElementById('total-cost')
 const delivery = document.getElementById('delivery')
 const totalPurchase = document.getElementById('total-purchase')
+const totalProducts = document.getElementById('product_count')
+const proceedButton = document.getElementById('proceedButton')
+const proceedButtonA = document.getElementById('proceedButton-a')
 
 function removeItem(productId) {
     cart.removeItemById(productId)
@@ -17,13 +20,16 @@ function removeItem(productId) {
     if (!cart.items.length){
         addEmptyText()
     }
+    totalProducts.innerText = cart.items.length + ' products'
 }
 
 function subtractCount(productId) {
-    cart.subtractCount(productId)
     const countNumber = document.getElementById('count-' + productId)
-    countNumber.innerText = parseInt(countNumber.innerText) - 1
-    updateTotalPrice()
+    const result = cart.subtractCount(productId)
+    if (result){
+        countNumber.innerText = parseInt(countNumber.innerText) - 1
+        updateTotalPrice()
+    }
 }
 
 function addCount(productId) {
@@ -97,6 +103,7 @@ function loadProductsToCart() {
     }else{
         addEmptyText()
     }
+    totalProducts.innerText = cart.items.length + ' products'
 
 }
 
@@ -110,6 +117,10 @@ function addEmptyText(){
         </div>
     `
     cartContainer.appendChild(cartItem)
+    proceedButton.classList.add('bg-[#e5e5e5]')
+    proceedButton.classList.add('text-[#b2b2b2]')
+    proceedButton.classList.remove('hover:bg-[#e0872d]')
+    proceedButtonA.setAttribute('href', "/cart")
 }
 
 window.addEventListener('load', loadProductsToCart);

@@ -5,9 +5,12 @@ const cart_block = document.getElementById('cart_block')
 const total_price = document.getElementById('total_price')
 const cart_menu = document.getElementById('cart_menu')
 const cartCount = document.getElementById('cart_count')
+const profileIcon = document.getElementById('profile_icon')
+const profileMenu = document.getElementById('profile_menu')
 
 let hideTimeoutCat
 let hideTimeoutCart
+let hideTimeoutProfile
 
 window.addEventListener('load', loadProductsToCart);
 window.addEventListener('pageshow', (event) => {
@@ -74,13 +77,22 @@ const cart = {
     },
 
     subtractCount(productId) {
+        let flag = false
         this.items.forEach(element => {
             if (element.id === productId){
-                element.count -= 1
+                if (parseInt(element.count) === 1){
+                    flag = true
+                }else{
+                    element.count -= 1
+                }
             }
         });
+        if (flag){
+            return false
+        }
         this.saveToLocalStorage();
         updateTotalPrice()
+        return true
     },
 
     removeItemById(productId) {
@@ -179,3 +191,31 @@ cart_menu.addEventListener('mouseleave', () => {
     }, 50)
 })
 export default cart
+
+if (profileIcon && profileMenu) {
+    profileIcon.addEventListener('mouseenter', () => {
+        clearTimeout(hideTimeoutProfile);
+        profileMenu.classList.remove('translate-x-[10rem]')
+        profileMenu.classList.add('z-30')
+        profileMenu.classList.add('opacity-100')
+    })
+
+    profileIcon.addEventListener('mouseleave', () => {
+        hideTimeoutProfile = setTimeout(() => {
+            profileMenu.classList.add('translate-x-[10rem]')
+            profileMenu.classList.remove('z-30')
+            profileMenu.classList.remove('opacity-100')
+        }, 200)
+    })
+    profileMenu.addEventListener('mouseenter', () => {
+        clearTimeout(hideTimeoutProfile)
+    })
+
+    profileMenu.addEventListener('mouseleave', () => {
+        hideTimeoutProfile = setTimeout(() => {
+            profileMenu.classList.add('translate-x-[10rem]')
+            profileMenu.classList.remove('z-30')
+            profileMenu.classList.remove('opacity-100')
+        }, 50)
+    })
+}

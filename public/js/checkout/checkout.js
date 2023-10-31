@@ -1,3 +1,76 @@
+import cart from '../header/header.js'
+
+const totalPriceDiv = document.getElementById('total-cost')
+const totalPurchase = document.getElementById('total-purchase')
+const totalPurchase2 = document.getElementById('total-purchase-2')
+const totalProducts = document.getElementById('product_count')
+const delivery = document.getElementById('delivery')
+const orderContainer = document.getElementById('order_container')
+const downProductsIcon = document.getElementById('down_products')
+const productsDataField = document.getElementById('productsData')
+
+function updateTotalPrice() {
+    const totalPrice = cart.getTotalPrice()
+    totalPriceDiv.innerText = totalPrice + " USD"
+    let deliveryPrice = 0
+    if (totalPrice > 500) {
+        delivery.innerText = '0 USD'
+    }else{
+        deliveryPrice = 20
+        delivery.innerText = 'From ' + deliveryPrice + ' USD'
+    }
+    totalPurchase.innerText = (parseFloat(totalPrice) + parseInt(deliveryPrice)).toFixed(2) + ' USD'
+    totalPurchase2.innerText = (parseFloat(totalPrice) + parseInt(deliveryPrice)).toFixed(2) + ' USD'
+}
+
+
+function loadProductsToOrder() {
+    cart.loadFromLocalStorage()
+    const productsInCart = cart.items
+    updateTotalPrice()
+    if (productsInCart.length){
+        productsInCart.forEach(product => {
+            const cartItem = document.createElement('div')
+            const imageUrl = window.location.origin + '/' + product.imageUrl
+            cartItem.innerHTML = `
+                <div id="${product.id}" class="flex mt-[2rem] pr-[1rem]">
+                    <div class="h-[5rem] w-[5rem]">
+                        <a href="/product/${product.id}"><img class="object-contain h-full w-full" src="${imageUrl}"></a>
+                    </div>
+                    <div class="flex flex-col ml-6">
+                        <div>
+                            <a href="/product/${product.id}"><h2 class="font-medium max-w-[288px] text-md">${product.name}</h2></a>
+                            <p class="mt-2">Count: ${product.count}</p>
+                            <p class="mt-2 text-right">${product.price} USD</p>
+                        </div>
+                    </div>
+                </div>
+            `
+            orderContainer.appendChild(cartItem)
+        });
+    }else{
+        window.location.href = "/cart"
+    }
+    totalProducts.innerText = cart.items.length + ' products'
+
+}
+
+let downProductIconState = true
+downProductsIcon.addEventListener('click', () => {
+    if (downProductIconState) {
+        downProductsIcon.classList.add('-rotate-180')
+        orderContainer.classList.add('hidden')
+        downProductIconState = false
+    }else{
+        downProductsIcon.classList.remove('-rotate-180')
+        downProductIconState = true
+        orderContainer.classList.remove('hidden')
+    }
+})
+
+
+window.addEventListener('load', loadProductsToOrder);
+
 const form = document.getElementById('form')
 
 const phoneInput = document.getElementById('phone-input');
@@ -195,7 +268,6 @@ function checkPostalCode(postalCode) {
 
     return '';
 }
-
 form.addEventListener('submit', function(event) {
     const firstnameValue = firstname.value
     const surnameValue = surname.value
@@ -248,9 +320,12 @@ form.addEventListener('submit', function(event) {
         flag = false
     }
 
+    const products = cart.items
+    productsDataField.value = JSON.stringify(products)
+
+    cart.items = []
+    cart.saveToLocalStorage()
     if (!flag){
         event.preventDefault()
     }
 });
-
-

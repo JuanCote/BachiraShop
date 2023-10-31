@@ -16,3 +16,14 @@ logoutPopup.addEventListener('click', (event) => {
         logoutPopup.classList.add('hidden')
     }
 })
+
+document.addEventListener('DOMContentLoaded', () => {
+    const notification = document.getElementById('notification');
+    if (notification) {
+        notification.classList.add('opacity-100');
+        setTimeout(() => {
+            notification.classList.remove('opacity-100');
+        }, 2000)
+    }
+
+  });

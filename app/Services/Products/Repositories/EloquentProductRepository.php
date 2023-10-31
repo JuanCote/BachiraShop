@@ -25,4 +25,8 @@ class EloquentProductRepository
     {
         return Product::find($id);
     }
+    public function getProductsByIds(array $ids): Collection
+    {
+        return Product::whereIn('id', $ids)->get();
+    }
 }

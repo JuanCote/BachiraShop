@@ -11,7 +11,7 @@
     </ul>
     <div class="flex gap-10 items-center">
         @auth
-        <div class="flex items-center flex-col">
+        <div id="profile_icon" class="flex items-center flex-col">
             <a href="/profile/orders"><img class="" src="{{ asset('images/user.png') }}"></a>
             <a href="/profile/orders"><p class="font-medium">Account</p></a>
         </div>
@@ -53,3 +53,33 @@
         @endif
     @endforeach
 </div>
+@auth
+<div id="profile_menu" class="w-[300px] absolute opacity-0 transition right-0 -z-30 translate-x-[10rem]">
+    <div class="bg-[#f1f2f4] text-lg font-bold h-[5rem] px-8 items-center flex">
+        @if ($user->name)
+        {{$user->name}}
+        @else
+        {{$user->email}}
+        @endif
+    </div>
+    <div class="border-x-2">
+        <a href="/profile/orders"><div class="flex hover:bg-gray-200 transition bg-white gap-2 items-center border-b-2 py-4 px-8">
+            <img class="h-[1.5rem]" src="{{ asset('images/empty_box.png') }}">
+            <p class="font-medium text-md">My orders</p>
+        </div></a>
+        <a href="/profile/address"><div class="flex bg-white hover:bg-gray-200 transition gap-2 items-center border-b-2 py-4 px-8">
+            <img class="h-[1.5rem]" src="{{ asset('images/location.png') }}">
+            <p class="font-medium text-md">My Address</p>
+        </div></a>
+        <a href="/profile/orders"><div class="flex hover:bg-gray-200 transition bg-white gap-2 items-center py-4 px-8">
+            <img class="h-[1.5rem] ml-[0.3rem]" src="{{ asset('images/logout.png') }}">
+            <p class="font-medium text-md">Logout</p>
+        </div></a>
+    </div>
+    <div class="bg-[#3c9379] h-[5rem] py-6 flex text-white gap-2 px-8">
+        <p>Free delivery from 500 USD</p>
+        <img class="h-[1.5rem]" src="{{asset('images/truck.png')}}">
+    </div>
+</div>
+@endauth
+

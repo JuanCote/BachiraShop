@@ -29,4 +29,8 @@ class ProductService
     {
         return $this->productRepository->getProductById($id);
     }
+    public function getProductsByIds(array $ids): Collection
+    {
+        return $this->productRepository->getProductsByIds($ids);
+    }
 }
