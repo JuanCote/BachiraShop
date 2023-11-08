@@ -2,6 +2,7 @@
 
 BachiraShop - online shop written with laravel. This store includes the main functions of an online store. For example, regular authorization, selecting products, adding to cart, placing an order.
 
+https://github.com/JuanCote/BachiraShop/assets/91831744/e8f2e766-3be4-4e28-b037-99d56efba8e2
 
 ## Installation
 
