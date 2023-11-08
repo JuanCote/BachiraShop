@@ -37,13 +37,10 @@ class ProfileController extends Controller
         $categories = $this->categoryService->getAllCategories();
         $user = $request->user();
         $orders = $this->orderService->getOrdersByUser($user);
-        Log::info($orders);
-        $message = session('message', null);
         return view('profile.profileOrders')->with([
             'categories' => $categories,
             'orders' => $orders,
             'user' => $user,
-            'message' => $message,
         ]);
     }
     public function profileAddress(Request $request)

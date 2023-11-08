@@ -10,6 +10,7 @@ use App\Services\Products\ProductService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Session;
 
 class ProductsController extends Controller
 {
@@ -82,6 +83,7 @@ class ProductsController extends Controller
     public function cart(Request $request)
     {
         $categories = $this->categoryService->getAllCategories();
+        Log::info(Session::all());
         $user = $request->user();
         return view('products.cart')->with([
             'categories' => $categories,

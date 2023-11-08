@@ -228,5 +228,4 @@ document.addEventListener('DOMContentLoaded', () => {
             notification.classList.remove('opacity-100');
         }, 2000)
     }
-
 });

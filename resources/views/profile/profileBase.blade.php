@@ -7,7 +7,7 @@
         <ul class="ml-[1rem] mt-[1rem] w-[8rem]">
             <a href="/profile/orders"><li class="hover:underline cursor-pointer">My orders</li></a>
             <a href="/profile/address"><li class="hover:underline cursor-pointer">Delivery address</li></a>
-            <li id="logout_button" class="hover:underline cursor-pointer">Logout</li>
+            <li id="logout_button" class="text-red-500 hover:underline cursor-pointer">Logout</li>
         </ul>
     </div>
     <div class="w-[70%]">
