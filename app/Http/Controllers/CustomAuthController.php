@@ -75,7 +75,7 @@ class CustomAuthController extends Controller
     public function create(array $data)
     {
         return User::create([
-            'name' => 'Nikita',
+            'name' => 'User',
             'phone_number' => $data['phone_number'],
             'email' => $data['email'],
             'password' => Hash::make($data['password'])
