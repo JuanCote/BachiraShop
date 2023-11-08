@@ -27,6 +27,12 @@
         </div>
     </div>
 </div>
+@if (isset($message) && $message)
+    <div id="notification" class="flex absolute z-20 left-[50%] rounded-xl -translate-x-[50%] transition opacity-0 bg-[#dff6dd] items-center px-3 gap-3 w-[629.19px] h-[3rem]">
+        <img class="h-[2rem]" src="{{asset('images/check_mark_address.png')}}">
+        {{ $message }}
+    </div>
+@endif
 <div id="cart_menu" class="opacity-0 max-h-[800px] overflow-auto -z-30 transition-all translate-x-[10rem] absolute w-[25rem] rounded-xl bg-[#f1f2f4] right-0">
     <div id="cart_block" class="flex p-4 flex-col gap-4">
 

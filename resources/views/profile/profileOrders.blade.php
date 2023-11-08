@@ -2,12 +2,6 @@
 @section('content')
 
 <div class="w-full relative">
-    @if ($message)
-    <div id="notification" class="flex absolute z-20 mx-auto top-[-3rem] transition opacity-0 bg-[#dff6dd] items-center px-3 gap-3 w-[629.19px] h-[3rem]">
-        <img class="h-[2rem]" src="{{asset('images/check_mark_address.png')}}">
-        {{$message}}
-    </div>
-    @endif
     <h2 class="text-[#5c646c]">My account > My orders</h2>
     <h3 class="text-2xl mt-[1rem]">My orders</h3>
     <div class="min-h-[19rem]">

@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Redirect;
 use Session;
 
 class CustomAuthController extends Controller
@@ -16,8 +17,10 @@ class CustomAuthController extends Controller
     public function index()
     {
         if (Auth::check()) {
-            return redirect('index');
+            return redirect(url()->previous());
         }
+
+        Session::put('urlBefore', url()->previous());
 
         $categories = Category::all();
 
@@ -28,7 +31,7 @@ class CustomAuthController extends Controller
     public function customLogin(Request $request)
     {
         if (Auth::check()) {
-            return redirect('index');
+            return redirect(url()->previous());
         }
         $request->validate([
             'email' => 'required',
@@ -37,8 +40,14 @@ class CustomAuthController extends Controller
 
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect('')
-                ->withSuccess('Signed in');
+            if (url()->previous() != url()->current()) {
+                return redirect(Session::get('urlBefore', ''))->with([
+                    'message' => 'Successful authorization'
+                ]);
+            }
+            return redirect('')->with([
+                'message' => 'Successful authorization'
+            ]);
         }
 
         return redirect("login")->withErrors(['auth' => 'Login details are not valid']);
@@ -47,8 +56,10 @@ class CustomAuthController extends Controller
     public function registration()
     {
         if (Auth::check()) {
-            return redirect('index');
+            return redirect(url()->previous());
         }
+
+        Session::put('urlBefore', url()->previous());
 
         $categories = Category::all();
 
@@ -59,7 +70,7 @@ class CustomAuthController extends Controller
     public function customRegistration(Request $request)
     {
         if (Auth::check()) {
-            return redirect('index');
+            return redirect('');
         }
         $request->validate([
             'email' => 'required|email|unique:users',
@@ -69,7 +80,19 @@ class CustomAuthController extends Controller
         $data = $request->all();
         $check = $this->create($data);
 
-        return redirect("")->withSuccess('You are not allowed to access');
+        $credentials = $request->only('email', 'password');
+        if (Auth::attempt($credentials)) {
+            if (url()->previous() != url()->current()) {
+                return redirect(Session::get('urlBefore', ''))->with([
+                    'message' => 'Successful authorization'
+                ]);
+            }
+            return redirect('')->with([
+                'message' => 'Successful authorization'
+            ]);
+        }
+
+        return redirect("");
     }
 
     public function create(array $data)
@@ -80,15 +103,6 @@ class CustomAuthController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password'])
         ]);
-    }
-
-    public function dashboard()
-    {
-        if (Auth::check()) {
-            return view('dashboard');
-        }
-
-        return redirect("login")->withSuccess('You are not allowed to access');
     }
 
     public function signOut()

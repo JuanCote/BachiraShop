@@ -34,7 +34,6 @@ categoriesBlock.addEventListener('mouseleave', () => {
 });
 
 categories.addEventListener('mouseout', () => {
-    console.log('fuck')
     hideTimeoutCat = setTimeout(() => {
         categoriesBlock.classList.add('max-h-0')
         categoriesBlock.classList.remove('max-h-[200px]')
@@ -220,3 +219,14 @@ if (profileIcon && profileMenu) {
         }, 50)
     })
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const notification = document.getElementById('notification');
+    if (notification) {
+        notification.classList.add('opacity-100');
+        setTimeout(() => {
+            notification.classList.remove('opacity-100');
+        }, 2000)
+    }
+
+});
