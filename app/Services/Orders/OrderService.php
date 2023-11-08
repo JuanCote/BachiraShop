@@ -41,6 +41,11 @@ class OrderService
             }
             $totalCost += $price;
         }
+
+        if ($totalCost < 500) {
+            $totalCost += 20;
+        }
+
         return round($totalCost, 2);
     }
 

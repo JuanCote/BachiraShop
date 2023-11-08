@@ -34,6 +34,7 @@ categoriesBlock.addEventListener('mouseleave', () => {
 });
 
 categories.addEventListener('mouseout', () => {
+    console.log('fuck')
     hideTimeoutCat = setTimeout(() => {
         categoriesBlock.classList.add('max-h-0')
         categoriesBlock.classList.remove('max-h-[200px]')

@@ -25,7 +25,7 @@
                 <p class="w-[120px]">Status</p>
                 <p class="w-[150px]">Date</p>
                 <p class="w-[120px]">Customer</p>
-                <p class="w-[150px]">Phone</p>
+                <p class="w-[170px]">Phone</p>
                 <p class="w-[50px] text-right">Total</p>
             </div>
             @foreach ($orders as $order)
@@ -34,7 +34,7 @@
                 <p class="w-[120px]">Processing</p>
                 <p class="w-[150px]">{{ $order->created_at }}</p>
                 <p class="w-[120px]">{{ $order->firstname }}</p>
-                <p class="w-[150px]">{{ $order->phone_number }}</p>
+                <p class="w-[170px]">{{ $order->phone_number }}</p>
                 <p class="w-[50px] text-right">{{ $order->total_price }}</p>
             </div>
             @endforeach

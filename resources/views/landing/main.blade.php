@@ -114,14 +114,14 @@ All Brands
                 <img src="{{url('/images/product3.png')}}" class=" hover:scale-110 transition duration-300 ease-out">
             </div></a>
             <p class="mt-[15px] text-xl font-medium"><a href="/product/34">Smartwatch</a></p>
-            <p class="mt-[2px]">350.00</p>
+            <p class="mt-[2px]">199.99 USD</p>
         </div>
         <div>
             <a href="/product/36"><div class="rounded-[30px] overflow-hidden">
                 <img src="{{url('/images/product4.png')}}" class=" hover:scale-110 transition duration-300 ease-out">
             </div></a>
             <p class="mt-[15px] text-xl font-medium"><a href="/product/36">Apple Airpods</a></p>
-            <p class="mt-[2px]">200.00</p>
+            <p class="mt-[2px]">200.00 USD</p>
         </div>
     </div>
 </div>
